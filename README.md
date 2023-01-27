@@ -1,1 +1,1 @@
-# Supercent_Academy
+# Academy
