@@ -49,9 +49,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        idleTime += Time.deltaTime;
-        shootTime += Time.deltaTime;
-
+        AddTime();
         GetInput();
         Idle();
         Move();
@@ -64,6 +62,12 @@ public class Player : MonoBehaviour
     {
         UpdateTarget();
         Look();
+    }
+
+    private void AddTime()
+    {
+        idleTime += Time.deltaTime;
+        shootTime += Time.deltaTime;
     }
 
     private void GetInput()
@@ -229,13 +233,14 @@ public class Player : MonoBehaviour
             return;
         }
         anim.SetTrigger("shoot");
+        GameManager.instance.soundManager.ShootSound();
         currentBullet--;
         shootTime = 0;
         damage = Random.Range(10, 21);
         enemy = obj.GetComponent<Enemy>();
         
-        var a = transform.forward;
-        var dir = new Vector2(a.x, a.z);
+        var forward = transform.forward;
+        var dir = new Vector2(forward.x, forward.z);
         GameManager.instance.mainCamera.Shake(dir, GameManager.instance.mainCamera.curve, 0.1f, 1f);
 
         Shoot(obj);
@@ -248,8 +253,8 @@ public class Player : MonoBehaviour
         if (currentBullet != 0)
             return;
         anim.SetTrigger("reload");
+        GameManager.instance.soundManager.ReloadSound();
         isReload = true;
-
         Invoke(nameof(ReloadOut), 2.5f);
     }
 }

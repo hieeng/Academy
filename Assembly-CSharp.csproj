@@ -70,6 +70,8 @@
      <Compile Include="Assets/Script1/date3_4/AdsManager.cs" />
      <Compile Include="Assets/Script1/date4_1.cs" />
      <Compile Include="Assets/Script2/Tracker.cs" />
+     <Compile Include="Assets/Script2/SoundManager.cs" />
+     <Compile Include="Assets/Script2/CompleteEffect.cs" />
      <None Include="Assets/Shaders/CheapMatCapLikeWithOutline.shader" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

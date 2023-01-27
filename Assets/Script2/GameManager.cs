@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public Player player;
     public MainCamera mainCamera;
     public UIManager uIManager;
+    public SoundManager soundManager;
+    public GameObject timeLine;
     public GameObject enemys;
     public int EnemyCount;
     public int EnemyKillCount;

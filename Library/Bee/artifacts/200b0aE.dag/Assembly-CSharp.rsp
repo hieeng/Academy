@@ -385,11 +385,13 @@
 "Assets/Script1/LargestNew.cs"
 "Assets/Script1/StudyBase.cs"
 "Assets/Script1/three.cs"
+"Assets/Script2/CompleteEffect.cs"
 "Assets/Script2/Enemy.cs"
 "Assets/Script2/Enemy_HPBar.cs"
 "Assets/Script2/GameManager.cs"
 "Assets/Script2/MainCamera.cs"
 "Assets/Script2/Player.cs"
+"Assets/Script2/SoundManager.cs"
 "Assets/Script2/Tracker.cs"
 "Assets/Script2/UIManager.cs"
 -langversion:9.0

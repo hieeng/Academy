@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
             time += Time.deltaTime;
             winPanel.SetActive(true);
             OnWinPanel(time);
+            GameManager.instance.timeLine.SetActive(true);
         }
     }
 

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject hpBar_Base;
     [SerializeField] Image hpBar;
     [SerializeField] int hp = 15;
+    Vector3 fixedHPBar = new Vector3(45, 0, 0);
     float time = 0;
     int currentHp;
     bool isDie = false;
@@ -55,9 +56,7 @@ public class Enemy : MonoBehaviour
         Vector3 nextPoint;
 
         if (RandomPoint(gameObject.transform.position, 5f, out nextPoint))
-        {
             agent.SetDestination(nextPoint);
-        }
     }
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -86,6 +85,9 @@ public class Enemy : MonoBehaviour
         StartCoroutine(CoroutineHpBar(damage, tempHp));
 
         anim.SetTrigger("Hit");
+        GameManager.instance.soundManager.ExplosionSound();
+        GameManager.instance.soundManager.BloodSound();
+        
         if (currentHp <= 0)
         {
             isDie = true;
@@ -133,7 +135,8 @@ public class Enemy : MonoBehaviour
     {
         if (!isHpBar)
             return;
-        hpBar_Base.transform.eulerAngles = Vector3.zero;
+        //hpBar_Base.transform.eulerAngles = Vector3.zero;
+        hpBar_Base.transform.eulerAngles = fixedHPBar;
     }
     
     private void Knockback()
